@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
-import addItem from 'CartSlice';
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
-    const [addedToCart, setAddedToCart] = useState({});
+
     const plantsArray = [
         {
             category: "Air Purifying Plants",
@@ -233,12 +232,10 @@ function ProductList({ onHomeClick }) {
         fontSize: '30px',
         textDecoration: 'none',
     }
-
     const handleHomeClick = (e) => {
         e.preventDefault();
         onHomeClick();
     };
-
     const handleCartClick = (e) => {
         e.preventDefault();
         setShowCart(true); // Set showCart to true when cart icon is clicked
@@ -248,7 +245,6 @@ function ProductList({ onHomeClick }) {
         setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
         setShowCart(false); // Hide the cart when navigating to About Us
     };
-
     const handleContinueShopping = (e) => {
         e.preventDefault();
         setShowCart(false);
@@ -266,7 +262,6 @@ function ProductList({ onHomeClick }) {
                             </div>
                         </a>
                     </div>
-
                 </div>
                 <div style={styleObjUl}>
                     <div> <a href="#" onClick={(e) => handlePlantsClick(e)} style={styleA}>Plants</a></div>
@@ -302,6 +297,7 @@ function ProductList({ onHomeClick }) {
                             </div>
                         </div>
                     ))}
+
                 </div>
             ) : (
                 <CartItem onContinueShopping={handleContinueShopping} />
@@ -309,5 +305,4 @@ function ProductList({ onHomeClick }) {
         </div>
     );
 }
-
 export default ProductList;
