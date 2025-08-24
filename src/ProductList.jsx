@@ -212,6 +212,16 @@ function ProductList({ onHomeClick }) {
             ]
         }
     ];
+
+    const handleAddToCart = (product) => {
+  dispatch(addItem(product)); /
+
+  setAddedToCart((prevState) => ({ 
+    ...prevState,
+    [product.name]: true,
+  }));
+};
+    
     const styleObj = {
         backgroundColor: '#4CAF50',
         color: '#fff!important',
