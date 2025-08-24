@@ -226,6 +226,12 @@ function ProductList({ onHomeClick }) {
         [product.name]: true,
       }));
     };
+
+  const cart = useSelector((state) => state.cart.items);
+    const cartQuantity = cart.reduce(
+      (totalQty, cartItem) => totalQty + cartItem.quantity,
+      0
+    );
     
     const styleObj = {
         backgroundColor: '#4CAF50',
